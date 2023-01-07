@@ -1,6 +1,5 @@
-import { DefaultTheme } from 'styled-components';
 
-const globalTheme: DefaultTheme = {
+const globalTheme = {
   colors: {
     neutrals: {
       "0": '#FFFFF',
