@@ -10,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head />
-      <body className={`${monserrat.className}`}>
+      <body className={`${monserrat.className} bg-neutral100`}>
         <Header />
         {children}
         <Footer />
