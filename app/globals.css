@@ -5,3 +5,7 @@
 .mainContainer {
   @apply w-full max-w-maxWDesktop mx-auto;
 }
+
+.gradientDefault {
+  background-image: linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
+}
