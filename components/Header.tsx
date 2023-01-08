@@ -3,21 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { useUserStore } from "../store/userStore";
 import DropdownUserMenu from "./DropdownUserMenu";
 
 const Header = () => {
-  /* const { user } = useUserStore((state) => state);
-
-  console.log(user); */
-
   return (
     <header className="w-screen">
-      <nav className="h-[128px] mainContainer px-4 md:px-8 flex justify-between items-center">
-        <Link
-          href={"/"}
-          className="w-9 h-9 md:w-12 md:h-12 lg:h-[48px] lg:w-[126px]"
-        >
+      <nav className="relative h-[128px] mainContainer px-4 md:px-8 flex justify-between items-center">
+        <Link href={"/"} className="w-9 h-9 md:w-12 md:h-12 lg:h-[48px] lg:w-[126px]">
           <Image
             src="/assets/icons/aerolab-logo-1.svg"
             alt="Aerolab logo"

@@ -9,3 +9,7 @@
 .gradientDefault {
   background-image: linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);
 }
+
+.gradientDefault:hover {
+  background-image: linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%);
+}
