@@ -9,7 +9,7 @@ const DropdownUserMenu = () => {
 
   return (
     <div
-      className={`relative flex justify-between items-center w-[143px] h-[40px] lg:w-[172px] lg:h-[48px] border border-neutral300 shadow-sm rounded-2xl px-4 hover:bg-neutral200 duration-100 ${
+      className={`relative z-50 flex justify-between items-center w-[143px] h-[40px] lg:w-[172px] lg:h-[48px] border border-neutral300 shadow-sm rounded-2xl px-4 hover:bg-neutral200 duration-100 ${
         menuOpen ? "bg-neutral200" : ""
       } `}
     >

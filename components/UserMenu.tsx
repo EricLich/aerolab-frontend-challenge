@@ -16,7 +16,7 @@ const UserMenu = () => {
   );
 
   return (
-    <div className="absolute z-30 top-[120%] w-[220px] md:w-[250px] lg:w-[321px] h-[300px] md:h-[320px] lg:h-[430px] right-0 border border-neutral300 shadow-sm rounded-2xl">
+    <div className="absolute z-50 bg-neutral0 top-[120%] w-[220px] md:w-[250px] lg:w-[321px] h-[300px] md:h-[320px] lg:h-[430px] right-0 border border-neutral300 shadow-sm rounded-2xl">
       <div className="w-full p-3 md:p-4 lg:p-6 border-b border-neutral200">
         <p className="text-smDefault md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default">
           Add Balance

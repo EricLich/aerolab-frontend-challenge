@@ -13,3 +13,7 @@
 .gradientDefault:hover {
   background-image: linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%);
 }
+
+.gradientHeroIllustration {
+  background-image: linear-gradient(102.47deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%);
+}
