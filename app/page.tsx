@@ -4,7 +4,7 @@ import Walktrough from "../components/Walktrough";
 
 export default async function Home() {
   return (
-    <main className="mt-[128px]">
+    <main className="mt-[128px] overflow-x-hidden">
       <WithWavePatternBG>
         <Hero />
         <Walktrough />
