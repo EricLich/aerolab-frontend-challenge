@@ -20,7 +20,7 @@ export type Product = {
 export const possiblePointRefillAmounts = [1000, 5000, 7500] as const;
 export type PossiblePointRefillAmounts = typeof possiblePointRefillAmounts[number];
 
-export type WalkthrougCardData = {
+export type WalkthroughCardData = {
   imgPath: {
     desktopPath: string;
     responsivePath: string;

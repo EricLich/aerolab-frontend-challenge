@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import React from "react";
-import { WalkthrougCardData } from "../utils/types";
+import { WalkthroughCardData } from "../utils/types";
 
-type WalkthrougCardProps = {
-  cardData: WalkthrougCardData;
+type WalkthroughCardProps = {
+  cardData: WalkthroughCardData;
 };
-/* TODO: change name of component to be correctly spelled as well as the image file names */
-const WalkthrougCard: React.FC<WalkthrougCardProps> = ({ cardData }) => {
+
+const WalkthroughCard: React.FC<WalkthroughCardProps> = ({ cardData }) => {
   console.log(cardData);
   return (
     <article className="p-3 rounded-sm">
@@ -19,4 +19,4 @@ const WalkthrougCard: React.FC<WalkthrougCardProps> = ({ cardData }) => {
   );
 };
 
-export default WalkthrougCard;
+export default WalkthroughCard;
