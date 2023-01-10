@@ -17,26 +17,32 @@ const WalkthroughCard: React.FC<WalkthroughCardProps> = ({ cardData }) => {
 
   return (
     <article
-      className={`relative p-3 rounded-3xl bg-neutral0 border border-neutral300 lg:w-[532px] lg:h-auto ${rotateDegs()}`}
+      className={`relative md:p-2 lg:p-3 rounded-3xl md:bg-neutral0/70 lg:bg-neutral0/100 border border-neutral300 lg:w-[532px] md:min-w-[240px] md:max-w-[33%] lg:max-w-[36%] md:h-[477px] lg:h-auto ${rotateDegs()}`}
     >
-      <div className="rounded-2xl overflow-hidden border border-neutral300">
+      <div className="bg-neutral0 rounded-2xl overflow-hidden border border-neutral300 h-full">
         <Image
           src={cardData.imgPath.desktopPath}
           alt={`${cardData.title} card`}
           width={510}
           height={500}
-          className="gradientHeroIllustration lg:h-[498px]"
+          className="gradientHeroIllustration md:h-[65%] lg:h-[498px] md:object-scale-down lg:object-none"
         />
-        <div className="flex flex-1 flex-col lg:px-6 lg:pt-4 lg:pb-6 lg:gap-3">
-          <div className="flex items-center lg:gap-4">
+        <div className="flex flex-1 flex-col md:px-6 md:pt-4 md:pb-6 md:gap-2 lg:gap-3">
+          <div className="flex items-center md:gap-4">
             <div className="bg-brandLight p-1 rounded-md">
-              <Image src={cardData.iconPath} alt={`${cardData.title} icon`} width={32} height={32} />
+              <Image
+                src={cardData.iconPath}
+                alt={`${cardData.title} icon`}
+                width={32}
+                height={32}
+                className="md:w-[26px] md:h-[26px] lg:w-8 lg:h-8"
+              />
             </div>
-            <h3 className="uppercase lg:text-lgTitleSmall lg:font-weightTitleSmall gradientDefault bg-clip-text text-transparent">
+            <h3 className="uppercase md:text-[2vw] lg:text-lgTitleSmall md:font-weightTitleSmall gradientDefault bg-clip-text text-transparent">
               {cardData.number}—{cardData.title}
             </h3>
           </div>
-          <p className="lg:text-lgDefault lg:font-weightDefault text-neutral600 leading-default lg:max-w-[372px]">
+          <p className="md:text-mdDefault lg:text-lgDefault md:font-weightDefault text-neutral600 leading-default lg:max-w-[372px]">
             {cardData.description}
           </p>
         </div>

@@ -4,6 +4,7 @@ import React from "react";
 
 import WalktroughCard from "./WalkthrougCard";
 import { WalkthroughCardData } from "../utils/types";
+import Image from "next/image";
 
 const walktroughCardsData: WalkthroughCardData[] = [
   {
@@ -40,9 +41,16 @@ const walktroughCardsData: WalkthroughCardData[] = [
 
 const Walkthrough = () => {
   return (
-    <section className="lg:mt-[112px] relative w-screen max-w-screen lg:min-h-[720px] overflow-x-hidden flex items-center justify-center">
-      <div className="absolute -z-10 top-0 bottom-0 mt-auto mb-auto w-full lg:h-[528px] gradientHeroIllustration50Opacity"></div>
-      <div className="flex items-center">
+    <section className="lg:mt-[112px] relative w-screen max-w-screen md:h-[1025px] lg:min-h-[720px] overflow-x-hidden flex items-center justify-center md:px-4 lg:px-0 md:pb-8 lg:pb-0">
+      <div className="absolute -z-10 lg:top-0 bottom-0 lg:mt-auto lg:mb-auto w-full md:h-[656px] lg:h-[528px] gradientHeroIllustration50Opacity"></div>
+      <Image
+        src="/assets/illustrations/hero-desktop.png"
+        width={580}
+        height={518}
+        alt="illustration"
+        className="lg:hidden absolute -top-10 left-0 right-0 ml-auto mr-auto"
+      />
+      <div className="flex w-full justify-center lg:items-center md:mt-auto md:gap-2 lg:gap-0 lg:mt-0">
         {walktroughCardsData.map((card) => (
           <WalktroughCard cardData={card} key={card.number} />
         ))}
