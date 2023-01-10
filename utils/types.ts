@@ -25,6 +25,7 @@ export type WalkthroughCardData = {
     desktopPath: string;
     responsivePath: string;
   };
+  iconPath: string;
   number: number;
   title: string;
   description: string;

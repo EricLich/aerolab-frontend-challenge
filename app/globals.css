@@ -19,5 +19,9 @@
 }
 
 .gradientHeroIllustration {
+  background-image: linear-gradient(102.47deg, #7296EB -5.34%, #EAC0E9 106.58%, #EAC0E9 106.58%);
+}
+
+.gradientHeroIllustration50Opacity {
   background-image: linear-gradient(102.47deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%);
 }
