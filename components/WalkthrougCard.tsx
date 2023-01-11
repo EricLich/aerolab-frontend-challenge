@@ -26,7 +26,7 @@ const WalkthroughCard: React.FC<WalkthroughCardProps> = ({ cardData }) => {
           width={800}
           height={800}
           quality={80}
-          className="gradientHeroIllustration h-[60%] md:h-[65%] lg:h-[498px] object-cover md:object-scale-down lg:object-none"
+          className="gradientHeroIllustration h-[60%] md:h-[65%] lg:h-[498px] object-cover md:object-scale-down "
         />
         <div className="flex flex-1 flex-col px-6 pt-4 pb-6 gap-2 lg:gap-3">
           <div className="flex items-center gap-4">

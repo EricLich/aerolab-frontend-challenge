@@ -19,7 +19,7 @@ const ButtonNumberSelector: React.FC<ButtonRefillAmountProps> = ({
     if (selectedRefillValue === value) {
       return ["gradientDefault", "text-neutral100"];
     } else {
-      return ["bg-brandLight", "bg-clip-text text-transparent gradientDefault"];
+      return ["bg-brandLight hover:bg-brandLight2 duration-100", "bg-clip-text text-transparent gradientDefault"];
     }
   }, [selectedRefillValue]);
 

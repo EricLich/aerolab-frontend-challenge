@@ -21,7 +21,7 @@ module.exports = {
         "neutral600": "#7C899C",
         "neutral900": "#252F3D",
         "brandLight": "#E5F0FF",
-        "bradLight2": "#CCE1FF",
+        "brandLight2": "#CCE1FF",
         "greenDefault": "#29CC74",
         "greenLight": "#CCFFE3",
         "redDefault": "#E07F4F",
