@@ -1,11 +1,17 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import UserMenu from "./UserMenu";
 
-const DropdownUserMenu = () => {
+import UserMenu from "./UserMenu";
+import { useUserStore } from "../store/userStore";
+
+type DropdownUserMenuProps = {
+  loadingUser: boolean;
+};
+
+const DropdownUserMenu: React.FC<DropdownUserMenuProps> = ({ loadingUser }) => {
+  const { user } = useUserStore((store) => store);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const formattedNumber = 10000;
 
   return (
     <div
@@ -22,22 +28,24 @@ const DropdownUserMenu = () => {
           alt="open user dropdown menu"
         />
         <p className="text-smDefault md:text-mdDefault lg:text-lgDefault font-weightDefault bg-clip-text text-transparent gradientDefault">
-          {formattedNumber.toLocaleString("de-DE")}
+          {loadingUser ? "Loading..." : user.points.toLocaleString("de-DE")}
         </p>
       </div>
-      <button
-        className="w-6 h-6 cursor-pointer"
-        onClick={() => setMenuOpen((prev) => !prev)}
-        aria-label="open user menu"
-      >
-        <Image
-          src="/assets/icons/chevron-default.svg"
-          height={24}
-          width={24}
-          className={`${!menuOpen ? "rotate-90" : "rotate-270"} duration-300`}
-          alt="open user dropdown menu"
-        />
-      </button>
+      {!loadingUser && (
+        <button
+          className="w-6 h-6 cursor-pointer"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="open user menu"
+        >
+          <Image
+            src="/assets/icons/chevron-default.svg"
+            height={24}
+            width={24}
+            className={`${!menuOpen ? "rotate-90" : "rotate-270"} duration-300`}
+            alt="open user dropdown menu"
+          />
+        </button>
+      )}
       {menuOpen && <UserMenu />}
     </div>
   );

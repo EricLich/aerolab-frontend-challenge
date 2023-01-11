@@ -1,11 +1,23 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+
+import { useFetchUser } from "../hooks/useFetchUser";
+import { useUserStore } from "../store/userStore";
 
 import DropdownUserMenu from "./DropdownUserMenu";
 
 const Header = () => {
+  const { setFetchedUser } = useUserStore((store) => store);
+  const { user, loading, error } = useFetchUser();
+
+  useEffect(() => {
+    if (!loading && user) {
+      setFetchedUser(user);
+    }
+  }, [loading]);
+
   return (
     <header className="w-screen fixed top-0 z-50 bg-neutral0 border-b border-neutral100 shadow-sm">
       <nav className="relative h-[80px] md:h-[100px] lg:h-[120px] mainContainer px-4 md:px-8 flex justify-between items-center">
@@ -25,7 +37,7 @@ const Header = () => {
             className="w-full lg:hidden"
           />
         </Link>
-        <DropdownUserMenu />
+        <DropdownUserMenu loadingUser={loading} />
       </nav>
     </header>
   );

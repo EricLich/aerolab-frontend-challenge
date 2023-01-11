@@ -2,7 +2,7 @@ export type User = {
   _id: string;
   name: string;
   points: number;
-  createdDate: string;
+  createDate: string;
   redeemHistory: any[];
 }
 

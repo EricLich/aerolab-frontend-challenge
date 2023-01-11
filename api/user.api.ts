@@ -7,6 +7,6 @@ export const getUser = async (): Promise<User | Error> => {
     const res: AxiosResponse<User> = await axiosInstance.get('https://coding-challenge-api.aerolab.co/user/me');
     return res.data;
   } catch (err: any) {
-    throw new Error(err.message)
+    throw new Error(err)
   }
 }

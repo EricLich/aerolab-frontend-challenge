@@ -12,7 +12,7 @@ interface UserStore {
 export const useUserStore = create<UserStore>((set) => ({
   user: {
     _id: "",
-    createdDate: "",
+    createDate: "",
     name: "",
     points: 0,
     redeemHistory: [],
