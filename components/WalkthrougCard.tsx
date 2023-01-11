@@ -17,18 +17,19 @@ const WalkthroughCard: React.FC<WalkthroughCardProps> = ({ cardData }) => {
 
   return (
     <article
-      className={`relative md:p-2 lg:p-3 rounded-3xl md:bg-neutral0/70 lg:bg-neutral0/100 border border-neutral300 lg:w-[532px] md:min-w-[240px] md:max-w-[33%] lg:max-w-[36%] md:h-[477px] lg:h-auto ${rotateDegs()}`}
+      className={`relative p-2 lg:p-3 rounded-3xl bg-neutral0/60 lg:bg-neutral0/100 border border-neutral300 lg:w-[532px] md:min-w-[240px] md:max-w-[33%] lg:max-w-[36%] h-[408px] md:h-[477px] lg:h-auto ${rotateDegs()}`}
     >
       <div className="bg-neutral0 rounded-2xl overflow-hidden border border-neutral300 h-full">
         <Image
           src={cardData.imgPath.desktopPath}
           alt={`${cardData.title} card`}
-          width={510}
-          height={500}
-          className="gradientHeroIllustration md:h-[65%] lg:h-[498px] md:object-scale-down lg:object-none"
+          width={800}
+          height={800}
+          quality={80}
+          className="gradientHeroIllustration h-[60%] md:h-[65%] lg:h-[498px] object-cover md:object-scale-down lg:object-none"
         />
-        <div className="flex flex-1 flex-col md:px-6 md:pt-4 md:pb-6 md:gap-2 lg:gap-3">
-          <div className="flex items-center md:gap-4">
+        <div className="flex flex-1 flex-col px-6 pt-4 pb-6 gap-2 lg:gap-3">
+          <div className="flex items-center gap-4">
             <div className="bg-brandLight p-1 rounded-md">
               <Image
                 src={cardData.iconPath}
@@ -38,11 +39,14 @@ const WalkthroughCard: React.FC<WalkthroughCardProps> = ({ cardData }) => {
                 className="md:w-[26px] md:h-[26px] lg:w-8 lg:h-8"
               />
             </div>
-            <h3 className="uppercase md:text-[2vw] lg:text-lgTitleSmall md:font-weightTitleSmall gradientDefault bg-clip-text text-transparent">
+            <h3 className="uppercase text-smTitleSmall md:text-[2vw] lg:text-lgTitleSmall font-weightTitleSmall gradientDefault bg-clip-text text-transparent">
               {cardData.number}—{cardData.title}
             </h3>
           </div>
-          <p className="md:text-mdDefault lg:text-lgDefault md:font-weightDefault text-neutral600 leading-default lg:max-w-[372px]">
+          <p
+            className="min-w-[220px] md:min-w-0 text-smDefault md:text-mdDefault lg:text-lgDefault font-weightDefault text-neutral600 leading-default lg:max-w-[372px]"
+            title={cardData.description}
+          >
             {cardData.description}
           </p>
         </div>

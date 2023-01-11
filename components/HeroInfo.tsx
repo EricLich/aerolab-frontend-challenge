@@ -16,7 +16,7 @@ const HeroInfo = () => {
         explore the
       </p>
       <h1
-        className={`flex flex-col md:items-center lg:items-start text-smHero md:text-mdHero lg:text-[min(15vw,200px,200px)] uppercase font-weightHero leading-hero mb-6`}
+        className={`flex flex-col items-center lg:items-start text-smHero md:text-mdHero lg:text-[min(15vw,200px,200px)] uppercase font-weightHero leading-hero mb-6`}
       >
         <span className="gradientDefaultNoHover bg-clip-text text-transparent">tech</span>
         <span className="text-neutral900">zone</span>
