@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
+import { AddPointsApiResponse, PossiblePointRefillAmounts } from "../utils/types";
 import CommonButton from "./CommonButton";
 import CreditCard from "./CreditCard";
 import PointRefillSelector from "./PointRefillSelector";
-import { AddPointsApiResponse, PossiblePointRefillAmounts, User } from "../utils/types";
 import { refillUserPoints } from "../api/user.api";
 import { useUserStore } from "../store/userStore";
-import { toast } from "react-toastify";
 
 const UserMenu = () => {
   const { addPoints } = useUserStore((store) => store);
@@ -26,7 +26,7 @@ const UserMenu = () => {
     setProcessing(true);
     try {
       const user: AddPointsApiResponse = await refillUserPoints(selectedRefillValue);
-      addPoints(Object.values(user)[1] as number); //try to fix - for some reason using the type returns undefined
+      addPoints(user["New Points"]);
       toastSuccess("Points added!");
       setProcessing(false);
     } catch (error) {

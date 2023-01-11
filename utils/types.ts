@@ -32,6 +32,6 @@ export type WalkthroughCardData = {
 }
 
 export type AddPointsApiResponse = {
-  ['New points']: number;
+  ['New Points']: number;
   message: string;
 }
