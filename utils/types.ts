@@ -35,3 +35,6 @@ export type AddPointsApiResponse = {
   ['New Points']: number;
   message: string;
 }
+
+export const possibleSortingOptions = ["Most Recent", "Lowest Price", "Highest Price"] as const;
+export type PossibleSortingOptions = typeof possibleSortingOptions[number];
