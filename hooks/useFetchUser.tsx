@@ -11,8 +11,7 @@ interface useFetchUser {
 
 export const useFetchUser = (): useFetchUser => {
   const mounted = useRef<boolean>(false);
-  const { user, setFetchedUser } = useUserStore((store) => store);
-  console.log(user);
+  const { user } = useUserStore((store) => store);
   const [fetchReturn, setFetchReturn] = useState<useFetchUser>({
     user: undefined,
     error: undefined,
@@ -22,7 +21,6 @@ export const useFetchUser = (): useFetchUser => {
   useEffect(() => {
     const controller = new AbortController();
     if (mounted.current && user.name === "") {
-      /* setFetchReturn({ ...fetchReturn, loading: true }); */
       getUser()
         .then((res) => {
           setFetchReturn((prev) => (prev = { ...fetchReturn, loading: false, user: res as User }));

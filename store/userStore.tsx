@@ -7,6 +7,7 @@ import { User } from "../utils/types";
 interface UserStore {
   user: User;
   setFetchedUser: (newUser: User) => void;
+  addPoints: (newPoints: number) => void;
 }
 
 export const useUserStore = create<UserStore>((set) => ({
@@ -18,4 +19,5 @@ export const useUserStore = create<UserStore>((set) => ({
     redeemHistory: [],
   },
   setFetchedUser: (newUser: User) => set((state) => ({ user: { ...newUser } })),
+  addPoints: (newPoints: number) => set((state) => ({ user: { ...state.user, points: newPoints } })),
 }));

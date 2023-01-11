@@ -30,3 +30,8 @@ export type WalkthroughCardData = {
   title: string;
   description: string;
 }
+
+export type AddPointsApiResponse = {
+  ['New points']: number;
+  message: string;
+}

@@ -10,6 +10,8 @@ type CommonButtonProps = {
   secondText?: string;
   extraClasses?: string;
   extraHeight?: boolean;
+  onClick?: () => any;
+  processing?: boolean;
 };
 
 const CommonButton: React.FC<CommonButtonProps> = ({
@@ -20,18 +22,27 @@ const CommonButton: React.FC<CommonButtonProps> = ({
   secondText,
   extraClasses,
   extraHeight,
+  onClick,
+  processing,
 }) => {
   return (
     <button
-      className={`w-full h-[40px] lg:h-[60px] rounded-xl lg:rounded-2xl gradientDefault hover:gradientDefaultHover text-smDefaultSmall md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral0 flex items-center justify-center gap-2 ${
+      className={`w-full h-[40px] lg:h-[60px] rounded-xl lg:rounded-2xl ${
+        !processing ? "gradientDefault" : "gradientDefaultNoHover"
+      }  text-smDefaultSmall md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral0 flex items-center justify-center gap-2 ${
         extraClasses ? extraClasses : ""
-      } ${extraHeight ? "!lg:h-[80px] !h-16" : ""}`}
+      } ${extraHeight ? "!lg:h-[80px] !h-16" : ""} ${
+        processing ? "gradientHeroIllustration50Opacity cursor-not-allowed" : ""
+      }`}
+      onClick={onClick}
+      disabled={processing}
     >
-      {leftIcon && leftIcon}
-      {firstText && firstText}
-      {middleIcon && middleIcon}
-      {secondText && secondText}
-      {rightIcon && rightIcon}
+      {processing && "Processing..."}
+      {leftIcon && !processing && leftIcon}
+      {firstText && !processing && firstText}
+      {middleIcon && !processing && middleIcon}
+      {secondText && !processing && secondText}
+      {rightIcon && !processing && rightIcon}
     </button>
   );
 };

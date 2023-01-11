@@ -1,19 +1,35 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 
+import CommonButton from "./CommonButton";
 import CreditCard from "./CreditCard";
 import PointRefillSelector from "./PointRefillSelector";
-import { PossiblePointRefillAmounts } from "../utils/types";
-import CommonButton from "./CommonButton";
-import Image from "next/image";
+import { AddPointsApiResponse, PossiblePointRefillAmounts, User } from "../utils/types";
+import { refillUserPoints } from "../api/user.api";
+import { useUserStore } from "../store/userStore";
 
 const UserMenu = () => {
+  const { addPoints } = useUserStore((store) => store);
   const [selectedRefillValue, setSelectedRefillValue] = useState<PossiblePointRefillAmounts>(5000);
+  const [processing, setProcessing] = useState<boolean>(false);
 
   const leftButtonIcon = (
     <Image src="/assets/icons/aeropay-3.svg" width={24} height={24} alt="aeropay icon" quality={80} />
   );
+
+  const handleRefillPoints = async (): Promise<void> => {
+    setProcessing(true);
+    try {
+      const user: AddPointsApiResponse = await refillUserPoints(selectedRefillValue);
+      addPoints(Object.values(user)[1] as number); //try to fix - for some reason using the type returns undefined
+      setProcessing(false);
+    } catch (error) {
+      console.log("toast here");
+      setProcessing(false);
+    }
+  };
 
   return (
     <div className="absolute z-50 bg-neutral0 top-[120%] w-[220px] md:w-[250px] lg:w-[321px] h-[300px] md:h-[320px] lg:h-[430px] right-0 border border-neutral300 shadow-sm rounded-2xl">
@@ -28,7 +44,12 @@ const UserMenu = () => {
           selectedRefillValue={selectedRefillValue}
           setSelectedRefillValue={setSelectedRefillValue}
         />
-        <CommonButton firstText="Add Points" leftIcon={leftButtonIcon} />
+        <CommonButton
+          firstText="Add Points"
+          leftIcon={leftButtonIcon}
+          onClick={handleRefillPoints}
+          processing={processing}
+        />
       </div>
     </div>
   );
