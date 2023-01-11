@@ -9,11 +9,14 @@ import PointRefillSelector from "./PointRefillSelector";
 import { AddPointsApiResponse, PossiblePointRefillAmounts, User } from "../utils/types";
 import { refillUserPoints } from "../api/user.api";
 import { useUserStore } from "../store/userStore";
+import { toast } from "react-toastify";
 
 const UserMenu = () => {
   const { addPoints } = useUserStore((store) => store);
   const [selectedRefillValue, setSelectedRefillValue] = useState<PossiblePointRefillAmounts>(5000);
   const [processing, setProcessing] = useState<boolean>(false);
+  const toastError = (msg: string) => toast.error(msg);
+  const toastSuccess = (msg: string) => toast.success(msg);
 
   const leftButtonIcon = (
     <Image src="/assets/icons/aeropay-3.svg" width={24} height={24} alt="aeropay icon" quality={80} />
@@ -24,9 +27,10 @@ const UserMenu = () => {
     try {
       const user: AddPointsApiResponse = await refillUserPoints(selectedRefillValue);
       addPoints(Object.values(user)[1] as number); //try to fix - for some reason using the type returns undefined
+      toastSuccess("Points added!");
       setProcessing(false);
     } catch (error) {
-      console.log("toast here");
+      toastError("There was an error adding points");
       setProcessing(false);
     }
   };
