@@ -9,7 +9,7 @@ const Products = () => {
   const { productsPages } = useProductsContext();
 
   return (
-    <div className="w-full grid grid-cols-autofitSm md:grid-cols-autofitMd lg:grid-cols-4 lg:gap-x-6 lg:gap-y-20 lg:mt-16">
+    <div className="w-full grid grid-cols-autofitSm  md:grid-cols-3 lg:grid-cols-4 md:gap-x-6 lg:gap-x-6 md:gap-y-12 lg:gap-y-20 md:mt-16">
       {productsPages.pages[productsPages.currentPage]?.map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}
