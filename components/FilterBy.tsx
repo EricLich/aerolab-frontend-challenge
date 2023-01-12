@@ -25,7 +25,7 @@ const FilterBy = () => {
           ▲
         </span>
         {showCategories && (
-          <div className="absolute w-full left-0 top-[110%] h-auto max-h-[240px] overflow-y-scroll bg-neutral100 z-40 border border-neutral300 rounded-lg">
+          <div className="absolute w-full left-0 top-[110%] h-auto max-h-[240px] overflow-y-scroll bg-neutral0 z-40 border border-neutral300 rounded-lg">
             <ul className="py-2 flex flex-col items-start">
               {categories.map((category) => (
                 <li className="w-full hover:bg-neutral200 duration-75" key={category}>

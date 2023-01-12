@@ -1,5 +1,5 @@
 import Hero from "../components/Hero";
-import Products from "../components/Products";
+import ProductsSection from "../components/ProductsSection";
 import ProductsProvider from "../contexts/productsContext";
 import Walkthroug from "../components/Walkthroug";
 import WithWavePatternBG from "../components/WithWavePatternBG";
@@ -12,9 +12,8 @@ export default async function Home() {
         <Walkthroug />
       </WithWavePatternBG>
       <ProductsProvider>
-        <Products />
+        <ProductsSection />
       </ProductsProvider>
-      <div className="h-[1000px]"></div>
     </main>
   );
 }

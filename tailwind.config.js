@@ -11,7 +11,6 @@ module.exports = {
       maxWidth: {
         'maxWDesktop': '1464px',
       },
-
       colors: {
         "neutral0": '#FFFFFF',
         "neutral100": "#F5F9FF",
@@ -90,6 +89,11 @@ module.exports = {
         "defaultLight": "0%",
         "defaultSmall": "0%",
         "defaultSmallCaps": "5%",
+      },
+      gridTemplateColumns: {
+        'autofitLg': 'repeat(auto-fit, minmax(348px, 4fr))',
+        'autofitMd': 'repeat(auto-fit, minmax(311px, 3fr))',
+        'autofitSm': 'repeat(auto-fit, minmax(335px, 1fr))',
       },
     },
   },

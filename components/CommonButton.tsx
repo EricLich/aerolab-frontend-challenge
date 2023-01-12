@@ -29,11 +29,11 @@ const CommonButton: React.FC<CommonButtonProps> = ({
     <button
       className={`w-full h-[40px] lg:h-[60px] rounded-xl lg:rounded-2xl ${
         !processing ? "gradientDefault" : "gradientDefaultNoHover"
-      }  text-smDefaultSmall md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral0 flex items-center justify-center gap-2 ${
+      }  text-smDefaultSmall md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral0 flex items-center justify-center gap-2  ${
+        extraHeight ? "!lg:h-[80px] !h-16" : ""
+      } ${processing ? "gradientHeroIllustration50Opacity cursor-not-allowed" : ""} ${
         extraClasses ? extraClasses : ""
-      } ${extraHeight ? "!lg:h-[80px] !h-16" : ""} ${
-        processing ? "gradientHeroIllustration50Opacity cursor-not-allowed" : ""
-      }`}
+      } `}
       onClick={onClick}
       disabled={processing}
     >

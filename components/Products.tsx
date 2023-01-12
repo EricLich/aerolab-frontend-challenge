@@ -1,16 +1,19 @@
 "use client";
 
 import React from "react";
-import FiltersSection from "./FiltersSection";
+
+import ProductCard from "./ProductCard";
+import { useProductsContext } from "../contexts/productsContext";
 
 const Products = () => {
+  const { productsPages } = useProductsContext();
+
   return (
-    <section className="mainContainer flex flex-col items-start px-5 md:px-8 mt-20 md:mt-40 lg:mt-0" id="products">
-      <h2 className="mb-10 text-lgTitleSmall lg:text-lgTitleMid font-weightTitleMid lg:leading-titleMid uppercase text-neutral900">
-        <span className="gradientDefault bg-clip-text text-transparent">tech</span> products
-      </h2>
-      <FiltersSection />
-    </section>
+    <div className="w-full grid grid-cols-autofitSm md:grid-cols-autofitMd lg:grid-cols-4 lg:gap-x-6 lg:gap-y-20 lg:mt-16">
+      {productsPages.pages[productsPages.currentPage]?.map((product) => (
+        <ProductCard key={product._id} product={product} />
+      ))}
+    </div>
   );
 };
 

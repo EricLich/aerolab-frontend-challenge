@@ -54,7 +54,7 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
     pages: [],
     totalPages: 0,
     currentFormat: undefined,
-    currentPage: 1,
+    currentPage: 0,
   });
   const { width } = useWindowSize();
 
@@ -78,11 +78,11 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
   function formatProductPages(maxProdsPerPage: number): void {
     const { pages, totalPages } = buildPagesMatrixForSizes(maxProdsPerPage);
     if (maxProdsPerPage === MAX_PRODS_PER_PAGE_DESKTOP)
-      setProductsPages({ ...productsPages, currentPage: 1, currentFormat: "lg", pages, totalPages });
+      setProductsPages({ ...productsPages, currentPage: 0, currentFormat: "lg", pages, totalPages });
     if (maxProdsPerPage === MAX_PRODS_PER_PAGE_TABLET)
-      setProductsPages({ ...productsPages, currentPage: 1, currentFormat: "md", pages, totalPages });
+      setProductsPages({ ...productsPages, currentPage: 0, currentFormat: "md", pages, totalPages });
     if (maxProdsPerPage === MAX_PRODS_PER_PAGE_MOBILE)
-      setProductsPages({ ...productsPages, currentPage: 1, currentFormat: "sm", pages, totalPages });
+      setProductsPages({ ...productsPages, currentPage: 0, currentFormat: "sm", pages, totalPages });
   }
 
   function buildPagesMatrixForSizes(maxProdsPerPage: number): { pages: Product[][]; totalPages: number } {
