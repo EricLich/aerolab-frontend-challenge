@@ -9,8 +9,6 @@ interface useFetchProducts {
 }
 
 export const useFetchProducts = (): useFetchProducts => {
-  const mounted = useRef<boolean>(false);
-
   const [fetchReturn, setFetchReturn] = useState<useFetchProducts>({
     products: [],
     error: undefined,
@@ -19,17 +17,13 @@ export const useFetchProducts = (): useFetchProducts => {
 
   useEffect(() => {
     const controller = new AbortController();
-    if (mounted.current) {
-      getProducts()
-        .then((res) => {
-          setFetchReturn((prev) => (prev = { ...prev, products: res as Product[], loading: false }));
-        })
-        .catch((err) => setFetchReturn((prev) => (prev = { ...prev, loading: false, error: err })));
-      return;
-    }
+    getProducts()
+      .then((res) => {
+        setFetchReturn((prev) => (prev = { ...prev, products: res as Product[], loading: false }));
+      })
+      .catch((err) => setFetchReturn((prev) => (prev = { ...prev, loading: false, error: err })));
     return () => {
       controller.abort();
-      mounted.current = true;
     };
   }, []);
 
