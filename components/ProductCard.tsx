@@ -40,18 +40,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <article className="w-full flex flex-col md:h-[506px] md:gap-4">
-      <section className="flex flex-col border border-neutral300 rounded-lg md:h-[431px] overflow-hidden">
+    <article className="w-full flex flex-col h-[506px] gap-4">
+      <section className="flex flex-col border border-neutral300 rounded-lg h-[431px] overflow-hidden">
         <Image
           src={product.img.hdUrl}
           alt={`${product.name} image`}
           width={350}
           height={350}
-          className="md:min-h-[80%] object-contain border-b border-neutral300"
+          className="w-full min-h-[80%] object-contain border-b border-neutral300"
         />
-        <div className="h-full lg:py-4 md:px-6 flex flex-col items-start justify-center">
-          <h4 className="md:text-mdDefault lg:text-lgDefault font-weightDefault">{product.name}</h4>
-          <p className="md:text-mdDefault lg:text-lgDefaultSmall font-weightDefault text-neutral600">
+        <div className="h-full lg:py-4 px-6 flex flex-col items-start justify-center">
+          <h4 className="text-smDefault md:text-mdDefault lg:text-lgDefault font-weightDefault">{product.name}</h4>
+          <p className="text-smDefault md:text-mdDefault lg:text-lgDefaultSmall font-weightDefault text-neutral600">
             {product.category}
           </p>
         </div>
@@ -60,7 +60,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         firstText={user.points >= product.cost ? "Redeem for" : "You need"}
         middleIcon={kiteIcon}
         secondText={product.cost.toLocaleString("de-DE")}
-        extraClasses={`md:h-[59px] rounded-2xl ${user.points < product.cost ? "!bg-none !bg-neutral200" : ""}`}
+        extraClasses={`sm:text-smDefault h-[56px] md:h-[59px] rounded-2xl ${
+          user.points < product.cost ? "!bg-none !bg-neutral200" : ""
+        }`}
         onClick={reedem}
         processing={processing}
       />
