@@ -8,14 +8,14 @@ const FilterBy = () => {
   const [showCategories, setShowCategories] = useState<boolean>(false);
 
   return (
-    <div className="flex items-center lg:gap-4 md:h-[59px]" onClick={() => setShowCategories(!showCategories)}>
+    <div className="flex items-center lg:gap-4 h-[59px]" onClick={() => setShowCategories(!showCategories)}>
       <p className="hidden lg:block lg:text-lgDefault lg:font-weightDefault text-neutral600">Filter by:</p>
       <div
-        className={`relative md:w-[256px] border border-neutral300 rounded-2xl h-full flex items-center justify-between md:pl-6 md:pr-3 hover:bg-neutral200 ${
+        className={`relative w-[256px] border border-neutral300 rounded-2xl h-full flex items-center justify-between pl-6 pr-3 hover:bg-neutral200 ${
           showCategories ? "bg-neutral200" : ""
-        } duration-75`}
+        } duration-75`} //TODO: fix sizing when rest of filter components are positioned the way they should be
       >
-        <span className="text-lgDefault font-weightDefault text-neutral600">{currentFilter}</span>
+        <span className="text-smDefault md:text-lgDefault font-weightDefault text-neutral600">{currentFilter}</span>
         <span
           className={`rotate-180 text-[10px] text-neutral600 duration-200 ${showCategories ? "rotate-[360deg]" : ""}`}
         >
@@ -23,11 +23,11 @@ const FilterBy = () => {
         </span>
         {showCategories && (
           <div className="absolute w-full left-0 top-[110%] h-auto bg-neutral100 z-40 border border-neutral300 rounded-lg">
-            <ul className="md:py-2 flex flex-col items-start">
+            <ul className="py-2 flex flex-col items-start">
               {categories.map((category) => (
                 <li className="w-full hover:bg-neutral200 duration-75" key={category}>
                   <button
-                    className="w-full text-left md:text-lgDefault md:font-weightDefault text-neutral600 md:px-6 md:py-3"
+                    className="w-full text-left text-smDefault md:text-lgDefault md:font-weightDefault text-neutral600 px-6 py-3"
                     onClick={() => setCurrentFilter(category)}
                   >
                     {category}
