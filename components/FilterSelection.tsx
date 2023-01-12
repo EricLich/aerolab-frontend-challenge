@@ -6,9 +6,9 @@ import SortBy from "./SortBy";
 
 const FilterSelection = () => {
   return (
-    <div className="flex lg:flex-row items-center lg:gap-10">
+    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10">
       <FilterBy />
-      <div className="lg:w-[2px] lg:h-[59px] bg-neutral300"></div>
+      <div className="hidden lg:block lg:w-[2px] lg:h-[59px] bg-neutral300"></div>
       <SortBy />
     </div>
   );
