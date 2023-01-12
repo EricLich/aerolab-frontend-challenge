@@ -9,7 +9,7 @@ const FiltersSection = () => {
   return (
     <div className="w-full flex justify-between items-center">
       <FilterSelection />
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 };
