@@ -11,3 +11,14 @@ export const getProducts = async (): Promise<Product[]> => {
     throw new Error(err)
   }
 }
+
+export const redeemProduct = async (productId: string): Promise<string> => {
+  try {
+    const res: AxiosResponse<string> = await axiosInstance.post('https://coding-challenge-api.aerolab.co/redeem', {
+      productId,
+    });
+    return res.data;
+  } catch (err: any) {
+    throw new Error(err)
+  }
+}

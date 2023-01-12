@@ -1,17 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
+
+import CommonButton from "./CommonButton";
 import { useUserStore } from "../store/userStore";
 import { Product } from "../utils/types";
-import CommonButton from "./CommonButton";
+import { redeemProduct } from "../api/products.api";
+import { getUser } from "../api/user.api";
+import { toast } from "react-toastify";
 
 type ProductCardProps = {
   product: Product;
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { user } = useUserStore((store) => store);
+  const { user, setFetchedUser } = useUserStore((store) => store);
+  const [processing, setProcessing] = useState<boolean>(false);
   const kiteIcon = useMemo(() => {
     if (user.points >= product.cost) {
       return <Image src="/assets/icons/aeropay-3.svg" alt="aero logo" width={24} height={24} />;
@@ -19,9 +24,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return <Image src="/assets/icons/aeropay-4.svg" alt="aero logo" width={24} height={24} />;
   }, [user.points]);
 
-  const redeemProduct = (): void => {
+  const reedem = async (): Promise<void> => {
+    setProcessing(true);
     try {
-    } catch (err) {}
+      const res = await redeemProduct(product._id);
+      const updatedUser = await getUser();
+      setFetchedUser(updatedUser);
+      toast.success(`${product.name} redeemed successfully`);
+      setProcessing(false);
+    } catch (err) {
+      toast.error("There was a problem with the transaction");
+      setProcessing(false);
+    }
   };
 
   return (
@@ -44,7 +58,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         middleIcon={kiteIcon}
         secondText={product.cost.toLocaleString("de-DE")}
         extraClasses={user.points < product.cost ? "!bg-none !bg-neutral200" : ""}
-        onClick={redeemProduct}
+        onClick={reedem}
+        processing={processing}
       />
     </article>
   );
