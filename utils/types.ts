@@ -38,3 +38,10 @@ export type AddPointsApiResponse = {
 
 export const possibleSortingOptions = ["Most Recent", "Lowest Price", "Highest Price"] as const;
 export type PossibleSortingOptions = typeof possibleSortingOptions[number];
+
+export type ProductPages = {
+  pages: Product[][];
+  totalPages: number;
+  currentFormat: "lg" | "md" | "sm" | undefined;
+  currentPage: number;
+}
