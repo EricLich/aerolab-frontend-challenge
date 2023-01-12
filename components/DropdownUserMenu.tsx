@@ -28,7 +28,7 @@ const DropdownUserMenu: React.FC<DropdownUserMenuProps> = ({ loadingUser }) => {
           alt="open user dropdown menu"
         />
         <p className="text-smDefault md:text-mdDefault lg:text-lgDefault font-weightDefault bg-clip-text text-transparent gradientDefault">
-          {loadingUser ? "Loading..." : user.points.toLocaleString("de-DE")}
+          {loadingUser ? "Loading..." : user.points > 100000 ? "100K+" : user.points.toLocaleString("de-DE")}
         </p>
       </div>
       {!loadingUser && (

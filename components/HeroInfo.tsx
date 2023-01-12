@@ -21,9 +21,9 @@ const HeroInfo = () => {
         <span className="gradientDefaultNoHover bg-clip-text text-transparent">tech</span>
         <span className="text-neutral900">zone</span>
       </h1>
-      <h3 className="w-full max-w-[305px] lg:max-w-[523px] text-center lg:text-left md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral600 mb-10 lg:mb-14">
+      <p className="w-full max-w-[305px] lg:max-w-[523px] text-center lg:text-left md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral600 mb-10 lg:mb-14">
         Here you&apos;ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.
-      </h3>
+      </p>
       <CommonButton
         firstText="VIEW ALL PRODUCTS"
         rightIcon={arrowDownIcon}
