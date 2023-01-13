@@ -104,6 +104,7 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
   }
 
   function filterByCategory(filterCategory: string): void {
+    setSortingOption("Most Recent");
     let filteredProducts: Product[] = [];
     if (filterCategory === "All Products") {
       filteredProducts = [...products];
@@ -119,6 +120,12 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
 
   function sortByOption(option: PossibleSortingOptions): void {
     if (option === "Most Recent") {
+      if (currentFilter !== "All Products") {
+        filterByCategory(currentFilter);
+      } else {
+        const { pages, totalPages } = buildPagesMatrixForSizes(getAmountPerPage(productsPages.currentFormat));
+        setProductsPages({ ...productsPages, currentPage: 0, pages, totalPages });
+      }
     }
 
     if (option === "Highest Price") {
