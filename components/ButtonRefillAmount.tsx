@@ -23,9 +23,14 @@ const ButtonNumberSelector: React.FC<ButtonRefillAmountProps> = ({
     }
   }, [selectedRefillValue]);
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    e.stopPropagation();
+    setSelectedRefillValue(value);
+  };
+
   return (
     <button
-      onClick={() => setSelectedRefillValue(value)}
+      onClick={handleClick}
       className={`w-[32%] text-center ${dynamicStyling[0]} rounded-xl md:px-4 py-1 text-smDefaultSmall md:text-mdDefault lg:text-lgDefault font-weightDefault`}
     >
       <span className={dynamicStyling[1]}>{value}</span>

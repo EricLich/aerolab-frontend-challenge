@@ -25,7 +25,7 @@ const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
     >
       <button
         className={`w-10 h-10 bg-brandLight rounded-lg flex items-center justify-center disabled:bg-neutral200 ${
-          productsPages.currentPage === 0 ? "cursor-not-allowed" : "hover:bg-slate-300 duration-100"
+          productsPages.currentPage === 0 ? "cursor-not-allowed" : "lg:hover:bg-slate-300 duration-100"
         }`}
         disabled={productsPages.currentPage === 0}
         onClick={() => productsPages.currentPage > 0 && handlePageChange(-1)}
@@ -52,7 +52,7 @@ const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
         className={`w-10 h-10 bg-brandLight rounded-lg flex items-center justify-center disabled:bg-neutral200 ${
           productsPages.currentPage + 1 === productsPages.totalPages
             ? "cursor-not-allowed"
-            : "hover:bg-slate-300 duration-100"
+            : "lg:hover:bg-slate-300 duration-100"
         }`}
         disabled={productsPages.currentPage + 1 === productsPages.totalPages}
         onClick={() => productsPages.currentPage + 1 < productsPages.totalPages && handlePageChange(1)}

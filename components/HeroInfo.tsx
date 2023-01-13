@@ -10,6 +10,10 @@ const HeroInfo = () => {
     <Image src="assets/icons/arrow-down.svg" width={24} height={24} alt="view all products" />
   );
 
+  const goToProductsSection = (): void => {
+    document?.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="flex flex-col items-center lg:items-start">
       <p className="text-smDefaultCaps md:text-mdDefaultCaps lg:text-lgDefaultCaps uppercase font-weightDefaultCaps md:font-weightDefaultCaps lg:font-weightDefault leading-defaultCaps text-neutral600 mb-2">
@@ -29,6 +33,7 @@ const HeroInfo = () => {
         rightIcon={arrowDownIcon}
         extraClasses="max-w-[303px] lg:max-w-[318px] !rounded-3xl"
         extraHeight
+        onClick={goToProductsSection}
       />
     </div>
   );
