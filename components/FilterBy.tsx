@@ -16,7 +16,7 @@ const FilterBy = () => {
       <div
         className={`relative w-[256px] border border-neutral300 rounded-2xl h-full flex items-center justify-between pl-6 pr-3 hover:bg-neutral200 ${
           showCategories ? "bg-neutral200" : ""
-        } duration-75`} //TODO: fix sizing when rest of filter components are positioned the way they should be
+        } duration-75`}
       >
         <span className="text-smDefault md:text-lgDefault font-weightDefault text-neutral600">{currentFilter}</span>
         <span
