@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import BottomPagination from "./BottomPagination";
 import FiltersSection from "./FiltersSection";
 import Products from "./Products";
 
@@ -12,6 +13,7 @@ const ProductsSection = () => {
       </h2>
       <FiltersSection />
       <Products />
+      <BottomPagination />
     </section>
   );
 };
