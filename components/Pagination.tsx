@@ -19,7 +19,7 @@ const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
 
   return (
     <div
-      className={`flex items-center justify-between md:h-16 lg:h-[59px] w-[258px] border border-neutral300 rounded-2xl md:px-4 lg:px-3 ${
+      className={`flex items-center justify-between h-[60px] md:h-16 lg:h-[59px] w-[258px] border border-neutral300 rounded-2xl px-[15.5px] md:px-4 lg:px-3 ${
         extraClasses ? extraClasses : ""
       }`}
     >
