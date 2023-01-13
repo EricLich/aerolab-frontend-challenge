@@ -4,8 +4,13 @@ import React, { useState } from "react";
 import { useProductsContext } from "../contexts/productsContext";
 
 const FilterBy = () => {
-  const { categories, currentFilter, setCurrentFilter } = useProductsContext();
+  const { categories, currentFilter, setCurrentFilter, filterByCategory } = useProductsContext();
   const [showCategories, setShowCategories] = useState<boolean>(false);
+
+  const handleFilterChange = (category: string): void => {
+    setCurrentFilter(category);
+    filterByCategory(category);
+  };
 
   return (
     <div
@@ -31,7 +36,7 @@ const FilterBy = () => {
                 <li className="w-full hover:bg-neutral200 duration-75" key={category}>
                   <button
                     className="w-full text-left text-smDefault md:text-lgDefault font-weightDefault text-neutral600 px-6 py-3"
-                    onClick={() => setCurrentFilter(category)}
+                    onClick={() => handleFilterChange(category)}
                   >
                     {category}
                   </button>

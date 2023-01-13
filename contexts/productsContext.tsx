@@ -16,6 +16,7 @@ type ProductContextValues = {
   setCurrentFilter: (filter: string) => void;
   setSortingOption: (sortOption: PossibleSortingOptions) => void;
   setProductsPages: (updateValue: any) => void;
+  filterByCategory: (filterCategory: string) => void;
 };
 
 const initialState: ProductContextValues = {
@@ -34,6 +35,7 @@ const initialState: ProductContextValues = {
   setCurrentFilter: () => {},
   setSortingOption: () => {},
   setProductsPages: () => {},
+  filterByCategory: () => {},
 };
 
 const ProductsContext = createContext<ProductContextValues>(initialState);
@@ -85,8 +87,11 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
       setProductsPages({ ...productsPages, currentPage: 0, currentFormat: "sm", pages, totalPages });
   }
 
-  function buildPagesMatrixForSizes(maxProdsPerPage: number): { pages: Product[][]; totalPages: number } {
-    const productsCopy = [...products];
+  function buildPagesMatrixForSizes(
+    maxProdsPerPage: number,
+    filteredProducts?: Product[]
+  ): { pages: Product[][]; totalPages: number } {
+    const productsCopy = filteredProducts ? [...filteredProducts] : [...products];
     const pages: Product[][] = [];
 
     while (productsCopy.length > 0) {
@@ -94,6 +99,28 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
       pages.push(page);
     }
     return { pages, totalPages: pages.length };
+  }
+
+  function filterByCategory(filterCategory: string): void {
+    let filteredProducts: Product[] = [];
+    if (filterCategory === "All Products") {
+      filteredProducts = [...products];
+    } else {
+      filteredProducts = [...products].filter((product) => product.category === filterCategory);
+    }
+    const { pages, totalPages } = buildPagesMatrixForSizes(
+      getAmountPerPage(productsPages.currentFormat),
+      filteredProducts
+    );
+    setProductsPages({ ...productsPages, currentPage: 0, pages, totalPages });
+  }
+
+  function getAmountPerPage(format: ProductPages["currentFormat"]): number {
+    if (format === "sm") return MAX_PRODS_PER_PAGE_MOBILE;
+    if (format === "md") return MAX_PRODS_PER_PAGE_TABLET;
+    if (format === "lg") return MAX_PRODS_PER_PAGE_DESKTOP;
+
+    return 0;
   }
 
   useEffect(() => {
@@ -119,6 +146,7 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
         setProductsPages,
         setSortingOption,
         categories,
+        filterByCategory,
       }}
     >
       {children}
@@ -138,6 +166,7 @@ export const useProductsContext = () => {
     setProductsPages,
     setSortingOption,
     categories,
+    filterByCategory,
   } = useContext(ProductsContext);
   return {
     currentFilter,
@@ -150,6 +179,7 @@ export const useProductsContext = () => {
     setProductsPages,
     setSortingOption,
     categories,
+    filterByCategory,
   };
 };
 
