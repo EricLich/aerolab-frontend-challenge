@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'bigScreen': '1378px',
+      },
       maxWidth: {
         'maxWDesktop': '1464px',
       },

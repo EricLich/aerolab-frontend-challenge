@@ -7,7 +7,7 @@ import Pagination from "./Pagination";
 
 const FiltersSection = () => {
   return (
-    <div className="w-full flex justify-between items-center">
+    <div className="w-full flex justify-between items-start bigScreen:items-center">
       <FilterSelection />
       <Pagination />
     </div>

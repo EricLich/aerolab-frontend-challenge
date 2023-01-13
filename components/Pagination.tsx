@@ -14,7 +14,7 @@ const Pagination = () => {
   };
 
   return (
-    <div className="flex items-center justify-between h-[59px] w-[258px] border border-neutral300 rounded-2xl px-3">
+    <div className="flex items-center justify-between md:h-16 lg:h-[59px] w-[258px] border border-neutral300 rounded-2xl md:px-4 lg:px-3">
       <button
         className={`w-10 h-10 bg-brandLight rounded-lg flex items-center justify-center disabled:bg-neutral200 ${
           productsPages.currentPage === 0 ? "cursor-not-allowed" : "hover:bg-slate-300 duration-100"
