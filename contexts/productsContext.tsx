@@ -46,9 +46,9 @@ type ProductsProviderProps = {
   children: ReactNode;
 };
 
-const MAX_PRODS_PER_PAGE_DESKTOP: number = 16;
-const MAX_PRODS_PER_PAGE_TABLET: number = 12;
-const MAX_PRODS_PER_PAGE_MOBILE: number = 8;
+export const MAX_PRODS_PER_PAGE_DESKTOP: number = 16;
+export const MAX_PRODS_PER_PAGE_TABLET: number = 12;
+export const MAX_PRODS_PER_PAGE_MOBILE: number = 8;
 
 const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
   const [currentFilter, setCurrentFilter] = useState<string>("");

@@ -4,11 +4,15 @@ import Image from "next/image";
 import React, { useMemo, useState } from "react";
 import { toast } from "react-toastify";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import CommonButton from "./CommonButton";
 import { getUser } from "../api/user.api";
 import { Product } from "../utils/types";
 import { redeemProduct } from "../api/products.api";
 import { useUserStore } from "../store/userStore";
+import { useProductsContext } from "../contexts/productsContext";
 
 type ProductCardProps = {
   product: Product;
@@ -16,6 +20,7 @@ type ProductCardProps = {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { user, setFetchedUser } = useUserStore((store) => store);
+  const { loadingProducts } = useProductsContext();
   const [processing, setProcessing] = useState<boolean>(false);
 
   const kiteIcon = useMemo(() => {

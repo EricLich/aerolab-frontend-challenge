@@ -12,11 +12,13 @@ type PaginationProps = {
 };
 
 const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
-  const { productsPages, setProductsPages } = useProductsContext();
+  const { productsPages, setProductsPages, loadingProducts } = useProductsContext();
 
   const handlePageChange = (whereTo: number): void => {
     setProductsPages((prev: ProductPages) => ({ ...prev, currentPage: prev.currentPage + whereTo }));
   };
+
+  if (loadingProducts) return <></>;
 
   return (
     <div
