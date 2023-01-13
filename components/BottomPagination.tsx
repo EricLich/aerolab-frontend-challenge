@@ -8,7 +8,7 @@ const BottomPagination = () => {
   const { products, productsPages } = useProductsContext();
 
   return (
-    <div className=" w-full mt-16 flex items-center justify-between">
+    <div className="h-auto w-full mt-16 flex md:flex-col lg:flex-row items-center md:justify-center lg:justify-between md:gap-6">
       <div className="w-[33%]"></div>
       <p className="text-lgDefault text-neutral600 font-weightDefault w-[33%] flex justify-center">
         <span className="gradientDefaultNoHover bg-clip-text text-transparent mr-1">
@@ -17,7 +17,7 @@ const BottomPagination = () => {
         </span>
         products
       </p>
-      <div className="w-[33%] flex  justify-end">
+      <div className="lg:w-[33%] flex lg:justify-end">
         <Pagination />
       </div>
     </div>
