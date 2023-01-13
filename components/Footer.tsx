@@ -1,8 +1,29 @@
 "use client";
-import React from "react";
+import Image from "next/image";
+import React, { useState } from "react";
 
 const Footer = () => {
-  return <div></div>;
+  const [repoLinkClicked, setRepoLinkClicked] = useState<boolean>(false);
+
+  return (
+    <footer className="w-full flex items-center justify-center h-[200px] ">
+      <a
+        href="https://github.com/EricLich/aerolab-frontend-challenge"
+        target="_blank"
+        className={`flex items-center gap-2 text-lgDefault font-weightDefault text-neutral600`}
+        onClick={() => setRepoLinkClicked(true)}
+      >
+        {!repoLinkClicked ? (
+          <Image src={"/assets/icons/github-default.svg"} alt="github icon" width={24} height={24} />
+        ) : (
+          <Image src={"/assets/icons/github-active.svg"} alt="github icon" width={24} height={24} />
+        )}
+        <span className={`${repoLinkClicked ? "bg-clip-text text-transparent gradientDefaultNoHover" : ""}`}>
+          View this repository
+        </span>
+      </a>
+    </footer>
+  );
 };
 
 export default Footer;
