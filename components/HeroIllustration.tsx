@@ -13,6 +13,7 @@ const HeroIllustration = () => {
         height={3000}
         alt="hero illustration"
         className="absolute bottom-0 object-cover h-[125%]"
+        priority
       />
     </div>
   );
