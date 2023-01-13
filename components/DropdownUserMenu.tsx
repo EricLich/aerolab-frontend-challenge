@@ -19,10 +19,9 @@ const DropdownUserMenu: React.FC<DropdownUserMenuProps> = ({ loadingUser }) => {
 
   return (
     <div
-      className={`relative z-50 flex justify-between items-center w-[143px] h-[40px] lg:w-[172px] lg:h-[48px] border border-neutral300 shadow-sm rounded-2xl px-4 lg:hover:bg-neutral200 duration-100 cursor-pointer ${
+      className={`relative z-50 flex justify-between items-center w-[143px] h-[40px] lg:w-[172px] lg:h-[48px] border border-neutral300 shadow-sm rounded-2xl px-4 lg:hover:bg-neutral200 duration-100 ${
         menuOpen ? "bg-neutral200" : ""
       } `}
-      onClick={openUserMenu}
     >
       <div className="h-full flex items-center gap-1 md:gap-2 ">
         <Image
@@ -37,7 +36,7 @@ const DropdownUserMenu: React.FC<DropdownUserMenuProps> = ({ loadingUser }) => {
         </p>
       </div>
       {!loadingUser && (
-        <button className="w-6 h-6 cursor-pointer" aria-label="open user menu">
+        <button className="w-6 h-6 cursor-pointer" aria-label="open user menu" onClick={openUserMenu}>
           <Image
             src="/assets/icons/chevron-default.svg"
             height={24}

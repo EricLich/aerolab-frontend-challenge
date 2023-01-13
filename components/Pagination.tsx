@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import React from "react";
 
 import { useProductsContext } from "../contexts/productsContext";
@@ -23,7 +24,8 @@ const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
         extraClasses ? extraClasses : ""
       }`}
     >
-      <button
+      <motion.button
+        whileTap={{ scale: 0.95 }}
         className={`w-10 h-10 bg-brandLight rounded-lg flex items-center justify-center disabled:bg-neutral200 ${
           productsPages.currentPage === 0 ? "cursor-not-allowed" : "lg:hover:bg-slate-300 duration-100"
         }`}
@@ -39,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
           alt="previous page"
           className="rotate-180"
         />
-      </button>
+      </motion.button>
 
       <p className="text-lgDefault text-neutral600 font-weightDefault">
         Page{" "}
@@ -48,7 +50,8 @@ const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
         </span>
       </p>
 
-      <button
+      <motion.button
+        whileTap={{ scale: 0.95 }}
         className={`w-10 h-10 bg-brandLight rounded-lg flex items-center justify-center disabled:bg-neutral200 ${
           productsPages.currentPage + 1 === productsPages.totalPages
             ? "cursor-not-allowed"
@@ -67,7 +70,7 @@ const Pagination: React.FC<PaginationProps> = ({ extraClasses }) => {
           width={24}
           alt="next page"
         />
-      </button>
+      </motion.button>
     </div>
   );
 };
