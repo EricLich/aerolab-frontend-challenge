@@ -6,7 +6,7 @@ const Footer = () => {
   const [repoLinkClicked, setRepoLinkClicked] = useState<boolean>(false);
 
   return (
-    <footer className="w-full flex items-center justify-center h-[200px] ">
+    <footer className="w-full flex items-center justify-center h-[120px] lg:h-[200px] ">
       <a
         href="https://github.com/EricLich/aerolab-frontend-challenge"
         target="_blank"
