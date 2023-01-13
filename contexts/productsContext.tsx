@@ -17,6 +17,7 @@ type ProductContextValues = {
   setSortingOption: (sortOption: PossibleSortingOptions) => void;
   setProductsPages: (updateValue: any) => void;
   filterByCategory: (filterCategory: string) => void;
+  sortByOption: (option: PossibleSortingOptions) => void;
 };
 
 const initialState: ProductContextValues = {
@@ -36,6 +37,7 @@ const initialState: ProductContextValues = {
   setSortingOption: () => {},
   setProductsPages: () => {},
   filterByCategory: () => {},
+  sortByOption: () => {},
 };
 
 const ProductsContext = createContext<ProductContextValues>(initialState);
@@ -115,6 +117,29 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
     setProductsPages({ ...productsPages, currentPage: 0, pages, totalPages });
   }
 
+  function sortByOption(option: PossibleSortingOptions): void {
+    if (option === "Most Recent") {
+    }
+
+    if (option === "Highest Price") {
+      const sortedByHighestPrice = [...productsPages.pages.flat()].sort((a: Product, b: Product) => b.cost - a.cost);
+      const { pages, totalPages } = buildPagesMatrixForSizes(
+        getAmountPerPage(productsPages.currentFormat),
+        sortedByHighestPrice
+      );
+      setProductsPages({ ...productsPages, currentPage: 0, pages, totalPages });
+    }
+
+    if (option === "Lowest Price") {
+      const sortedByHighestPrice = [...productsPages.pages.flat()].sort((a: Product, b: Product) => a.cost - b.cost);
+      const { pages, totalPages } = buildPagesMatrixForSizes(
+        getAmountPerPage(productsPages.currentFormat),
+        sortedByHighestPrice
+      );
+      setProductsPages({ ...productsPages, currentPage: 0, pages, totalPages });
+    }
+  }
+
   function getAmountPerPage(format: ProductPages["currentFormat"]): number {
     if (format === "sm") return MAX_PRODS_PER_PAGE_MOBILE;
     if (format === "md") return MAX_PRODS_PER_PAGE_TABLET;
@@ -147,6 +172,7 @@ const ProductsProvider: React.FC<ProductsProviderProps> = ({ children }) => {
         setSortingOption,
         categories,
         filterByCategory,
+        sortByOption,
       }}
     >
       {children}
@@ -167,6 +193,7 @@ export const useProductsContext = () => {
     setSortingOption,
     categories,
     filterByCategory,
+    sortByOption,
   } = useContext(ProductsContext);
   return {
     currentFilter,
@@ -180,6 +207,7 @@ export const useProductsContext = () => {
     setSortingOption,
     categories,
     filterByCategory,
+    sortByOption,
   };
 };
 

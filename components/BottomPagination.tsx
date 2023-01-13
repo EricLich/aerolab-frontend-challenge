@@ -13,9 +13,8 @@ const BottomPagination = () => {
       <p className="w-full text-lgDefault text-neutral600 font-weightDefault lg:w-[33%] flex justify-center">
         <span className="gradientDefaultNoHover bg-clip-text text-transparent mr-1">
           {(productsPages.currentPage + 1) * productsPages.pages[productsPages.currentPage]?.length} of{" "}
-          {products.length}
+          {productsPages.pages.flat().length}
         </span>
-        products
       </p>
       <div className="lg:w-[33%] flex lg:justify-end">
         <Pagination />
