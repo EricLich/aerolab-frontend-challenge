@@ -30,7 +30,7 @@ const CreditCard = () => {
           {userCardExpDate()}
         </p>
       </div>
-      <div className="absolute w-[510%] -left-[80%] lg:-left-[50%] bottom-0 h-[60%] opacity-20 -rotate-3 bg-repeat-y bg-[url(/assets/illustrations/single-wave-pattern-small.svg)]"></div>
+      <div className="absolute w-[510%] -left-[80%] lg:-left-[50%] bottom-0 h-[60%] opacity-10 -rotate-3 bg-repeat-y bg-[url(/assets/illustrations/single-wave-pattern-small.svg)]"></div>
     </div>
   );
 };
