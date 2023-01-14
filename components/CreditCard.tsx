@@ -15,7 +15,7 @@ const CreditCard = () => {
   };
 
   return (
-    <div className="relative w-full h-[120px] lg:h-[148px] p-2 lg:p-4 bg-neutral900 rounded-xl flex flex-col justify-between mb-4 lg:mb-10">
+    <div className="relative w-full h-[120px] lg:h-[148px] p-2 lg:p-4 bg-neutral900 rounded-xl flex flex-col justify-between mb-4 lg:mb-10 overflow-hidden">
       <div className="flex items-center justify-between">
         <p className="text-smDefaultSmall lg:text-lgDefault md:text-lgDefault font-weightDefault leading-default text-neutral100">
           Aerocard
@@ -30,7 +30,7 @@ const CreditCard = () => {
           {userCardExpDate()}
         </p>
       </div>
-      <div className="absolute w-[110%] left-0 bottom-0 h-[60%] opacity-20 -rotate-3 bg-repeat-y bg-[url(/assets/illustrations/single-wave-pattern.svg)] subpixel-antialiased"></div>
+      <div className="absolute w-[310%] -left-[60%] bottom-0 h-[60%] opacity-20 -rotate-3 bg-repeat-y bg-[url(/assets/illustrations/single-wave-pattern-small.svg)]"></div>
     </div>
   );
 };

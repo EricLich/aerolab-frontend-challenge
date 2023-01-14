@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useProductsContext } from "../contexts/productsContext";
 
@@ -32,12 +33,13 @@ const FilterBy = () => {
             <ul className="py-2 flex flex-col items-start">
               {categories.map((category) => (
                 <li className="w-full hover:bg-neutral200 duration-75" key={category}>
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
                     className="w-full text-left text-smDefault md:text-lgDefault font-weightDefault text-neutral600 px-6 py-3"
                     onClick={() => handleFilterChange(category)}
                   >
                     {category}
-                  </button>
+                  </motion.button>
                 </li>
               ))}
             </ul>
