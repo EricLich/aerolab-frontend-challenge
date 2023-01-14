@@ -43,3 +43,11 @@
   height: auto;
   background-color: transparent !important;
 }
+
+@media screen and (max-width: 768px) {
+
+  .Toastify__toast-container {
+    left: 0;
+    width: 100%;
+  }
+}

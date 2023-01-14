@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <ToastContainer
           position="bottom-left"
-          autoClose={300000}
+          autoClose={3000}
           hideProgressBar={true}
           newestOnTop
           pauseOnFocusLoss

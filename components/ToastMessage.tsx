@@ -22,7 +22,7 @@ const ToastMessage: React.FC<ToastMessageProps> = ({ message, higlightPart, type
   return (
     <motion.div
       whileTap={{ scale: 0.95 }}
-      className={`lg:min-w-[532px] gap-5 bg-neutral0 h-full flex items-center justify-between p-4 border-2 rounded-xl ${
+      className={`md:min-w-[532px] gap-5 bg-neutral0 h-full flex items-center justify-between p-4 border-2 rounded-xl ${
         type === "success" ? " border-greenDefault" : "border-redDefault"
       }`}
     >
