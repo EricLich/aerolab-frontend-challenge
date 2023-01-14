@@ -30,7 +30,7 @@ const CommonButton: React.FC<CommonButtonProps> = ({
 }) => {
   return (
     <motion.button
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: disabled || processing ? 1 : 0.95 }}
       className={`w-full h-[40px] lg:h-[60px] rounded-xl lg:rounded-2xl ${
         !processing ? "gradientDefault" : "gradientDefaultNoHover"
       }  text-smDefaultSmall md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral0 flex items-center justify-center gap-2  ${
