@@ -1,4 +1,3 @@
-/* eslint-disable react/no-children-prop */
 "use client";
 
 import { Listbox } from "@headlessui/react";
@@ -19,6 +18,7 @@ const FilterBy = () => {
   return (
     <div className="flex items-center lg:gap-4 h-[59px] cursor-pointer">
       <p className="hidden bigScreen:block lg:text-lgDefault lg:font-weightDefault text-neutral600">Filter by:</p>
+      {/* old method */}
       {/* <div
         className={`relative w-[256px] border border-neutral300 rounded-2xl h-full flex items-center justify-between pl-6 pr-3 hover:bg-neutral200 ${
           showCategories ? "bg-neutral200" : ""
@@ -48,7 +48,7 @@ const FilterBy = () => {
             </ul>
           </div>
         )}
-      </div> */}
+      </div> */}{" "}
       <Listbox
         value={currentFilter}
         onChange={handleFilterChange}
@@ -58,7 +58,8 @@ const FilterBy = () => {
             open ? "bg-neutral200" : ""
           } duration-75`
         }
-        children={({ open }) => (
+      >
+        {({ open }) => (
           <>
             <Listbox.Button className={`relative w-full h-full flex justify-between items-center pl-6 pr-3`}>
               <p className="text-smDefault md:text-lgDefault font-weightDefault text-neutral600">{currentFilter}</p>
@@ -88,7 +89,7 @@ const FilterBy = () => {
             </Listbox.Options>
           </>
         )}
-      />
+      </Listbox>
     </div>
   );
 };
