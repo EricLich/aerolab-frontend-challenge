@@ -30,3 +30,16 @@
 .gradientHeroIllustration50Opacity {
   background-image: linear-gradient(102.47deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%);
 }
+
+.Toastify__toast {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.Toastify__toast-container {
+  width: auto;
+  height: auto;
+  background-color: transparent !important;
+}

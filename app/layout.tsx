@@ -18,12 +18,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <ToastContainer
           position="bottom-left"
-          autoClose={3000}
-          hideProgressBar={false}
+          autoClose={300000}
+          hideProgressBar={true}
           newestOnTop
           pauseOnFocusLoss
           pauseOnHover
-          theme="colored"
+          theme="light"
+          closeButton={false}
         />
         <Footer />
       </body>

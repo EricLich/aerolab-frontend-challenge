@@ -9,14 +9,13 @@ import CommonButton from "./CommonButton";
 import CreditCard from "./CreditCard";
 import PointRefillSelector from "./PointRefillSelector";
 import { refillUserPoints } from "../api/user.api";
+import ToastMessage from "./ToastMessage";
 import { useUserStore } from "../store/userStore";
 
 const UserMenu = () => {
   const { addPoints } = useUserStore((store) => store);
   const [selectedRefillValue, setSelectedRefillValue] = useState<PossiblePointRefillAmounts>(5000);
   const [processing, setProcessing] = useState<boolean>(false);
-  const toastError = (msg: string) => toast.error(msg);
-  const toastSuccess = (msg: string) => toast.success(msg);
 
   const leftButtonIcon = (
     <Image src="/assets/icons/aeropay-3.svg" width={24} height={24} alt="aeropay icon" quality={80} />
@@ -27,10 +26,10 @@ const UserMenu = () => {
     try {
       const user: AddPointsApiResponse = await refillUserPoints(selectedRefillValue);
       addPoints(user["New Points"]);
-      toastSuccess("Points added!");
+      toast(<ToastMessage message="Points added!" type="success" />);
       setProcessing(false);
     } catch (error) {
-      toastError("There was an error adding points");
+      toast(<ToastMessage message="There was an error adding points" type="error" />);
       setProcessing(false);
     }
   };
