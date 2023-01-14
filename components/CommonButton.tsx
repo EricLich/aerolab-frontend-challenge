@@ -13,6 +13,7 @@ type CommonButtonProps = {
   extraHeight?: boolean;
   onClick?: () => any;
   processing?: boolean;
+  disabled?: boolean;
 };
 
 const CommonButton: React.FC<CommonButtonProps> = ({
@@ -25,6 +26,7 @@ const CommonButton: React.FC<CommonButtonProps> = ({
   extraHeight,
   onClick,
   processing,
+  disabled,
 }) => {
   return (
     <motion.button
@@ -33,11 +35,11 @@ const CommonButton: React.FC<CommonButtonProps> = ({
         !processing ? "gradientDefault" : "gradientDefaultNoHover"
       }  text-smDefaultSmall md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default text-neutral0 flex items-center justify-center gap-2  ${
         extraHeight ? "!lg:h-[80px] !h-16" : ""
-      } ${processing ? "gradientHeroIllustration50Opacity cursor-not-allowed" : ""} ${
+      } ${processing || disabled ? "gradientHeroIllustration50Opacity cursor-not-allowed" : ""} ${
         extraClasses ? extraClasses : ""
       } `}
       onClick={onClick}
-      disabled={processing}
+      disabled={processing || disabled}
     >
       {processing && "Processing..."}
       {leftIcon && !processing && leftIcon}

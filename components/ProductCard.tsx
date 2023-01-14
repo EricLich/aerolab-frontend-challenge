@@ -66,6 +66,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         }`}
         onClick={reedem}
         processing={processing}
+        disabled={user.points < product.cost}
       />
     </article>
   );
