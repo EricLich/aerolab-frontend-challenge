@@ -11,6 +11,7 @@ import PointRefillSelector from "./PointRefillSelector";
 import { refillUserPoints } from "../api/user.api";
 import ToastMessage from "./ToastMessage";
 import { useUserStore } from "../store/userStore";
+import { Popover, Transition } from "@headlessui/react";
 
 const UserMenu = () => {
   const { addPoints } = useUserStore((store) => store);
@@ -35,7 +36,7 @@ const UserMenu = () => {
   };
 
   return (
-    <div className="absolute z-50 bg-neutral0 top-[120%] w-[220px] md:w-[250px] lg:w-[321px] h-[300px] md:h-[320px] lg:h-[430px] right-0 border border-neutral300 shadow-sm rounded-2xl">
+    <Popover.Panel className="absolute z-50 bg-neutral0 top-[120%] w-[220px] md:w-[250px] lg:w-[321px] h-[300px] md:h-[320px] lg:h-[430px] right-0 border border-neutral300 shadow-sm rounded-2xl">
       <div className="w-full p-3 md:p-4 lg:p-6 border-b border-neutral200">
         <p className="text-smDefault md:text-mdDefault lg:text-lgDefault font-weightDefault leading-default">
           Add Balance
@@ -54,7 +55,7 @@ const UserMenu = () => {
           processing={processing}
         />
       </div>
-    </div>
+    </Popover.Panel>
   );
 };
 

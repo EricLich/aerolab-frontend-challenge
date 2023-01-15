@@ -48,7 +48,7 @@ const FilterBy = () => {
             </ul>
           </div>
         )}
-      </div> */}{" "}
+      </div> */}
       <Listbox
         value={currentFilter}
         onChange={handleFilterChange}
